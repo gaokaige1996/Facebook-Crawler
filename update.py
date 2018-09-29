@@ -4,11 +4,8 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import re
 from random import randint
-from time import sleep
 import traceback
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 #match reply with comments
@@ -79,48 +76,18 @@ def opendriver():
     driver.maximize_window()
     driver.get('https://www.facebook.com')
     driver.find_element_by_id("email").clear()
-    driver.find_element_by_id("email").send_keys('fanyu@onid.oregonstate.edu')
+    driver.find_element_by_id("email").send_keys('XXXXXXX@gmaiil.com')#account email address
     driver.find_element_by_id("pass").clear()
-    driver.find_element_by_id("pass").send_keys('Kaige199678')
-    #try:
+    driver.find_element_by_id("pass").send_keys('password')
     driver.find_element_by_id("pass").send_keys(Keys.ENTER)
-        #driver.find_element_by_css_selector("button[name='login']")
-        #driver.find_element_by_id("loginbutton").click()
-    #except:
-        #driver.find_element_by_id("loginbutton").click()
+
 
     return driver
 
 def final(driver,fileid,postid):
-#####################driver location#####################3
-    # chrome_options = webdriver.ChromeOptions()
-    # prefs = {"profile.managed_default_content_settings.images": 2,"permissions.default.stylesheet":2,"javascript.enabled":False,"profile.default_content_setting_values.notifications":1}
-    # chrome_options.add_experimental_option("prefs", prefs)
-    # driver = webdriver.Chrome(chrome_options=chrome_options)
-    # driver.maximize_window()
-    # driver.get('https://www.facebook.com')
-
-# if has other windows
-
-    #driver.find_element_by_id("expanding_cta_close_button").click()
-
-#not have other windows
-
-#     driver.find_element_by_id("email").clear()
-#     driver.find_element_by_id("email").send_keys('fanyu@onid.oregonstate.edu')
-# #account:fanyu@onid.oregonstate.edu
-# #password:Kaige199678
-# #gaokaige1996@gmail.com
-# #gaokaige960523
-#     driver.find_element_by_id("pass").clear()
-#     driver.find_element_by_id("pass").send_keys('Kaige199678')
-#     driver.find_element_by_id("loginbutton").click()
-
     driver.get('https://www.facebook.com/'+fileid+'/posts/'+postid)
-
-
     sleep(randint(3, 7))
-    #弹窗
+
     try:
         driver.find_element_by_xpath('//*[@id="photos_snowlift"]/div[2]/div/a').click()
     except:
@@ -283,9 +250,7 @@ def final(driver,fileid,postid):
 file = open("/Users/mia/PycharmProjects/facebook/acsi_postids.txt")
 
 
-
-
-with open('Error92.txt','w') as f:
+with open('Error.txt','w') as f:
     for line in file.readlines():
         line = line.strip('\n')
         l = line.split(' : ')
