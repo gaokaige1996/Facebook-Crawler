@@ -21,9 +21,9 @@ def opendriver():
     driver.maximize_window()
     driver.get('https://www.facebook.com')
     driver.find_element_by_id("email").clear()
-    driver.find_element_by_id("email").send_keys('fanyu@onid.oregonstate.edu')
+    driver.find_element_by_id("email").send_keys('YOUR_EMAIL')
     driver.find_element_by_id("pass").clear()
-    driver.find_element_by_id("pass").send_keys('Kaige199678')
+    driver.find_element_by_id("pass").send_keys('YOUR_PASSWORD')
     driver.find_element_by_id("pass").send_keys(Keys.ENTER)
     return driver
 
